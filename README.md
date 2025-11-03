@@ -121,6 +121,14 @@ function MyComponent() {
 
 ## Theming
 
+### Available Themes
+
+| Theme | Description | Import Path |
+|-------|-------------|-------------|
+| `cpt-default` | Custom red, white, and blue theme with glossy styling | `@cpt-group/cpt-prime-react/themes/cpt-default.css` |
+| `soho-dark` | Dark theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-dark.css` |
+| `soho-light` | Light theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-light.css` |
+
 ### Importing Themes
 
 Import one of the provided themes to get all required PrimeReact styles:
