@@ -10,10 +10,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release
 - 83 wrapped PrimeReact components with CPT naming
-- TypeScript definitions for all components
-- Theme support (soho-dark, soho-light)
+- TypeScript definitions
+- Theme support:
+  - `cpt-default`: Custom red, white, and blue theme with glossy styling
+  - `soho-dark`: Dark theme with modern Soho styling
+  - `soho-light`: Light theme with modern Soho styling
 - Dual build output (CJS + ESM)
-- Full PrimeReact API compatibility
+
+## [1.1.0] - 2025-11-03
+
+### Added
+- Custom `cpt-default` theme with red, white, and blue color scheme
+- Glossy styling effects (gradients, shadows, shine animations)
+- American patriotic color palette
+
+## [1.0.0] - 2025-11-03
+
+### Added
+- Initial release
+- 83 wrapped PrimeReact components with CPT naming
+- TypeScript definitions
+- Theme support:
+  - `soho-dark`: Dark theme with modern Soho styling
+  - `soho-light`: Light theme with modern Soho styling
+- Dual build output (CJS + ESM)
 
 ## [Unreleased]
 

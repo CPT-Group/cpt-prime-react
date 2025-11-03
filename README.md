@@ -126,6 +126,9 @@ function MyComponent() {
 Import one of the provided themes to get all required PrimeReact styles:
 
 ```tsx
+// CPT Default theme (red, white, and blue with glossy styling)
+import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
+
 // Dark theme
 import '@cpt-group/cpt-prime-react/themes/soho-dark.css';
 
@@ -136,10 +139,10 @@ import '@cpt-group/cpt-prime-react/themes/soho-light.css';
 ### Theme Structure
 
 Themes include:
-- PrimeReact theme CSS (soho-dark or soho-light)
 - PrimeReact core styles
 - PrimeIcons
 - PrimeFlex utility classes
+- Custom styling and variables
 
 ### Using Themes
 
@@ -147,7 +150,7 @@ Import the theme CSS once in your application entry point (e.g., `App.tsx` or `i
 
 ```tsx
 import React from 'react';
-import '@cpt-group/cpt-prime-react/themes/soho-dark.css';
+import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
 import { CPTButton, CPTInputText } from '@cpt-group/cpt-prime-react';
 
 function App() {
