@@ -1,0 +1,258 @@
+{
+  "version": "1.0.0",
+  "status": "active",
+  "description": "Expert registry for CPT Prime React - npm library project for React component library built with PrimeReact, TypeScript, and React. Contains experts focused on npm package development, React component creation, TypeScript library structure, PrimeReact component patterns, and npm publishing workflows.",
+  "lastUpdated": "2025-01-29T00:00:00Z",
+  "projectContext": "cpt-prime-react - npm library for React component library with PrimeReact foundation",
+
+  "activeExperts": [
+    {
+      "id": "npm-developer-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "1.0.0",
+      "notes": "Comprehensive npm package manager expert covering package.json configuration, semantic versioning, npm scripts, workspaces, npx, scoped packages, private registries, publishing workflows, security auditing, and dependency management. CRITICAL for npm library development and publishing."
+    },
+    {
+      "id": "node-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "1.0.0",
+      "notes": "Node.js runtime expert covering event loop, modules (CommonJS, ES Modules), npm basics, async programming, streams, file system operations. Essential for Node.js tooling and build processes."
+    },
+    {
+      "id": "npm-package-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "1.0.0",
+      "notes": "npm package expert focused on private NPM registry, monorepo patterns (Lerna/Nx/Turborepo), versioning, and publishing @company/* packages. Useful for enterprise npm library workflows."
+    },
+    {
+      "id": "prime-react-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "1.0.0",
+      "notes": "PrimeReact UI component library expert covering 80+ components, installation, theming (styled/unstyled modes), component usage patterns, PrimeIcons, TypeScript support, and accessibility. CRITICAL for building on PrimeReact foundation."
+    },
+    {
+      "id": "typescript-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "2.0.0",
+      "notes": "TypeScript and JavaScript expert with comprehensive type system knowledge, compiler options, modules, generics, utility types, declaration files, and library structure patterns. Version 2.0.0 with 650+ facts. CRITICAL for TypeScript library development."
+    },
+    {
+      "id": "react-expert",
+      "status": "active",
+      "readyForTesting": true,
+      "version": "1.0.0",
+      "notes": "Comprehensive React UI library expert covering components, JSX, hooks, state management, props, context API, performance optimization, and component patterns. 60+ facts. Essential for React component library development."
+    }
+  ],
+
+  "activationRules": {
+    "autoActivate": true,
+    "contextAware": true,
+    "loadOnStartup": true,
+    "multiExpertOrchestration": true,
+    "cursorV2Enabled": true,
+    "multiAgentWorkflowsEnabled": true,
+    "composerModelEnabled": true,
+    "teamCommandsEnabled": true,
+    "turingTestPersonaEnabled": true
+  },
+
+  "cursorV2Config": {
+    "version": "2.0",
+    "lastUpdated": "2025-01-29",
+    "features": {
+      "multiAgents": {
+        "enabled": true,
+        "maxConcurrentAgents": 8,
+        "defaultWorkflowStrategy": "intelligent_parallelization",
+        "fallbackToSequential": true
+      },
+      "composerModel": {
+        "enabled": true,
+        "useForCodeGeneration": true,
+        "useForPatternApplication": true,
+        "useForMultiFileGeneration": true,
+        "preferredExperts": [
+          "typescript-expert",
+          "react-expert",
+          "prime-react-expert",
+          "npm-developer-expert"
+        ]
+      },
+      "teamCommands": {
+        "enabled": true,
+        "centralizedConfig": true,
+        "autoDeployment": true
+      },
+      "improvedCodeReview": {
+        "enabled": true,
+        "validateExpertOutput": true,
+        "checkCrossFileConsistency": true
+      },
+      "sandboxedTerminals": {
+        "enabled": true,
+        "mcpServiceSandbox": true,
+        "auditLogging": true
+      },
+      "turingTestPersona": {
+        "enabled": true,
+        "naturalConversation": true,
+        "contextualUnderstanding": true,
+        "humanLikeResponses": true,
+        "emotionalIntelligence": "moderate",
+        "professionalTone": "senior_architect_consultant"
+      }
+    }
+  },
+
+  "multiAgentWorkflows": {
+    "npm_library_component_development": {
+      "name": "NPM Library Component Development",
+      "description": "Create a React component for npm library with TypeScript, PrimeReact integration, and proper package structure",
+      "triggerPatterns": [
+        "create component",
+        "build library component",
+        "add new component to library",
+        "implement npm package component"
+      ],
+      "agents": [
+        {
+          "agentId": 1,
+          "expert": "typescript-expert",
+          "role": "type_definitions",
+          "dependencies": [],
+          "output": "src/types/",
+          "priority": "critical"
+        },
+        {
+          "agentId": 2,
+          "expert": "react-expert",
+          "role": "component_implementation",
+          "dependencies": [],
+          "output": "src/components/",
+          "priority": "critical"
+        },
+        {
+          "agentId": 3,
+          "expert": "prime-react-expert",
+          "role": "prime_react_integration",
+          "dependencies": [2],
+          "output": "src/components/",
+          "priority": "high"
+        },
+        {
+          "agentId": 4,
+          "expert": "npm-developer-expert",
+          "role": "package_structure",
+          "dependencies": [],
+          "output": "package.json",
+          "priority": "high"
+        }
+      ],
+      "estimatedSpeedImprovement": "4x (3 parallel + 1 dependent vs 4 sequential)"
+    },
+    "npm_package_setup": {
+      "name": "NPM Package Setup",
+      "description": "Complete npm library package setup with TypeScript, build configuration, and publishing structure",
+      "triggerPatterns": [
+        "setup npm package",
+        "configure library package",
+        "prepare for publishing",
+        "setup package.json"
+      ],
+      "agents": [
+        {
+          "agentId": 1,
+          "expert": "npm-developer-expert",
+          "role": "package_configuration",
+          "dependencies": [],
+          "output": "package.json",
+          "priority": "critical"
+        },
+        {
+          "agentId": 2,
+          "expert": "typescript-expert",
+          "role": "typescript_config",
+          "dependencies": [],
+          "output": "tsconfig.json",
+          "priority": "high"
+        },
+        {
+          "agentId": 3,
+          "expert": "node-expert",
+          "role": "build_tooling",
+          "dependencies": [],
+          "output": "build scripts",
+          "priority": "medium"
+        }
+      ],
+      "estimatedSpeedImprovement": "3x (3 parallel vs 3 sequential)"
+    }
+  },
+
+  "composerModelConfig": {
+    "defaultModel": "composer",
+    "expertPreferences": {
+      "code_generation_experts": [
+        "typescript-expert",
+        "react-expert",
+        "prime-react-expert",
+        "npm-developer-expert",
+        "node-expert"
+      ],
+      "conversation_experts": [
+        "npm-developer-expert",
+        "typescript-expert",
+        "react-expert"
+      ],
+      "model_selection_rules": {
+        "use_composer_when": [
+          "Generating TypeScript/React component code",
+          "Multi-file code generation (components, types, exports)",
+          "Library structure and package.json configuration",
+          "Component patterns and exports",
+          "npm publishing workflows"
+        ],
+        "use_standard_model_when": [
+          "General conversation",
+          "npm package planning",
+          "Component design discussion",
+          "Documentation writing",
+          "Q&A about library structure"
+        ]
+      }
+    }
+  },
+
+  "turingTestPersonaConfig": {
+    "conversationStyle": {
+      "tone": "professional_senior_library_developer",
+      "personality": "helpful_expert_consultant",
+      "communication": "clear_concise_thoughtful",
+      "empathy": "high",
+      "patience": "unlimited",
+      "adaptability": "match_user_technical_level"
+    },
+    "humanLikeTraits": {
+      "acknowledgement": "Acknowledge user input naturally (e.g., 'Great question', 'I understand', 'That makes sense')",
+      "thinking_process": "Show reasoning (e.g., 'Let me think through this...', 'Considering npm best practices...')",
+      "uncertainty_honesty": "Admit when unsure (e.g., 'I don't have facts about that yet', 'Let me consult the expert')",
+      "learning_attitude": "Show willingness to learn from corrections",
+      "context_awareness": "Remember conversation history and reference it naturally",
+      "expertise_boundaries": "Know when to consult specific experts vs general knowledge"
+    },
+    "conversationPatterns": {
+      "greeting": "Natural and contextual (not robotic)",
+      "explanation": "Use analogies, examples, and progressive disclosure",
+      "questioning": "Ask clarifying questions like a real consultant would",
+      "confirmation": "Confirm understanding before proceeding",
+      "completion": "Summarize outcomes and offer next steps naturally"
+    }
+  }
+}
+

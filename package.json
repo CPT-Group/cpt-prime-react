@@ -1,0 +1,80 @@
+{
+  "name": "@cpt-group/cpt-prime-react",
+  "version": "1.0.0",
+  "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    },
+    "./themes/*": {
+      "default": "./src/themes/*.css"
+    }
+  },
+  "files": [
+    "dist",
+    "src/themes",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types",
+    "build:clean": "rimraf dist",
+    "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs",
+    "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir dist/esm",
+    "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types",
+    "watch": "tsc -p tsconfig.build.json --watch",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build",
+    "version": "node -e \"console.log(require('./package.json').version)\""
+  },
+  "keywords": [
+    "react",
+    "primereact",
+    "components",
+    "typescript",
+    "ui",
+    "cpt"
+  ],
+  "author": "CPT Group",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CPT-Group/cpt-prime-react.git"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "primereact": "^10.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": false
+    },
+    "react-dom": {
+      "optional": false
+    },
+    "primereact": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mermaid Diagram Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: #f5f5f5;
+    }
+    h1 {
+      color: #333;
+      border-bottom: 2px solid #007acc;
+      padding-bottom: 10px;
+    }
+    .diagram-container {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin: 20px 0;
+    }
+    .mermaid {
+      text-align: center;
+    }
+    pre {
+      background: #282c34;
+      color: #abb2bf;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    .success {
+      color: #28a745;
+      background: #d4edda;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mermaid Diagram Test</h1>
+  <p class="success">✓ If you see a rendered diagram below, the Mermaid syntax is valid!</p>
+  
+  <div class="diagram-container">
+    <h2>Rendered Diagram</h2>
+    <div class="mermaid">
+graph TD
+    Start[Database Technology Selection<br/>for CPTPRDINTSQL] --> Q1{Do we have SQL Server<br/>licenses with active<br/>Software Assurance?}
+    
+    Q1 -->|No| NoAHUB[No Azure Hybrid Benefit<br/>SQL Server 124% more expensive]
+    Q1 -->|Yes| HasAHUB[Azure Hybrid Benefit Available<br/>SQL Server 65% more expensive]
+    
+    NoAHUB --> Q2A{Is dynamic case data<br/>with JSONB critical?}
+    HasAHUB --> Q2B{Is dynamic case data<br/>with JSONB critical?}
+    
+    Q2A -->|Yes, JSONB vital| PG1[[OK] PostgreSQL<br/>JSONB + 124% cost savings]
+    Q2A -->|No, can use JSON text| Q3A{Team strongly<br/>prefers SQL Server?}
+    
+    Q2B -->|Yes, JSONB vital| PG2[[OK] PostgreSQL<br/>JSONB + 65% cost savings]
+    Q2B -->|No, can use JSON text| Q3B{Team strongly<br/>prefers SQL Server?}
+    
+    Q3A -->|Yes, strong preference| Q4A{Willing to accept<br/>JSON text limitations?}
+    Q3A -->|No| PG3[[OK] PostgreSQL<br/>Lower TCO + JSONB]
+    
+    Q3B -->|Yes, strong preference| Q4B{Willing to accept<br/>JSON text limitations<br/>+ higher cost?}
+    Q3B -->|No| PG4[[OK] PostgreSQL<br/>Lower TCO + JSONB]
+    
+    Q4A -->|Yes, acceptable| SQL1[[WARN] SQL Server<br/>Higher cost, JSON workarounds]
+    Q4A -->|No, not acceptable| PG5[[OK] PostgreSQL<br/>JSONB advantage decisive]
+    
+    Q4B -->|Yes, acceptable| SQL2[[WARN] SQL Server with AHUB<br/>Higher cost, JSON workarounds]
+    Q4B -->|No, not acceptable| PG6[[OK] PostgreSQL<br/>JSONB advantage decisive]
+    
+    PG1 --> Rec1[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>Savings: $1,255/month vs SQL Server<br/>JSONB: Native support]
+    PG2 --> Rec2[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>Savings: $655/month vs SQL Server AHUB<br/>JSONB: Native support]
+    PG3 --> Rec3[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>Savings: $1,255/month<br/>JSONB: Native support]
+    PG4 --> Rec4[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>Savings: $655/month with AHUB<br/>JSONB: Native support]
+    PG5 --> Rec5[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>JSONB: Strategic advantage<br/>Savings: $1,255/month]
+    PG6 --> Rec6[Recommendation: PostgreSQL<br/>Cost: $1,010/month<br/>JSONB: Strategic advantage<br/>Savings: $655/month with AHUB]
+    
+    SQL1 --> Alt1[Alternative: SQL Server<br/>Cost: $2,265/month<br/>Compromise: JSON text workarounds<br/>Only if team expertise critical]
+    SQL2 --> Alt2[Alternative: SQL Server with AHUB<br/>Cost: $1,665/month<br/>Compromise: JSON text workarounds<br/>Only if team expertise critical]
+    
+    style Start fill:#e1f5ff
+    style PG1 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG2 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG3 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG4 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG5 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG6 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style SQL1 fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style SQL2 fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style Rec1 fill:#d4edda
+    style Rec2 fill:#d4edda
+    style Rec3 fill:#d4edda
+    style Rec4 fill:#d4edda
+    style Rec5 fill:#d4edda
+    style Rec6 fill:#d4edda
+    style Alt1 fill:#fff3cd
+    style Alt2 fill:#fff3cd
+    </div>
+  </div>
+
+  <div class="diagram-container">
+    <h2>Source Code</h2>
+    <pre>graph TD
+    Start[Database Technology Selection&lt;br/&gt;for CPTPRDINTSQL] --&gt; Q1{Do we have SQL Server&lt;br/&gt;licenses with active&lt;br/&gt;Software Assurance?}
+    
+    Q1 --&gt;|No| NoAHUB[No Azure Hybrid Benefit&lt;br/&gt;SQL Server 124% more expensive]
+    Q1 --&gt;|Yes| HasAHUB[Azure Hybrid Benefit Available&lt;br/&gt;SQL Server 65% more expensive]
+    
+    NoAHUB --&gt; Q2A{Is dynamic case data&lt;br/&gt;with JSONB critical?}
+    HasAHUB --&gt; Q2B{Is dynamic case data&lt;br/&gt;with JSONB critical?}
+    
+    Q2A --&gt;|Yes, JSONB vital| PG1[[OK] PostgreSQL&lt;br/&gt;JSONB + 124% cost savings]
+    Q2A --&gt;|No, can use JSON text| Q3A{Team strongly&lt;br/&gt;prefers SQL Server?}
+    
+    Q2B --&gt;|Yes, JSONB vital| PG2[[OK] PostgreSQL&lt;br/&gt;JSONB + 65% cost savings]
+    Q2B --&gt;|No, can use JSON text| Q3B{Team strongly&lt;br/&gt;prefers SQL Server?}
+    
+    Q3A --&gt;|Yes, strong preference| Q4A{Willing to accept&lt;br/&gt;JSON text limitations?}
+    Q3A --&gt;|No| PG3[[OK] PostgreSQL&lt;br/&gt;Lower TCO + JSONB]
+    
+    Q3B --&gt;|Yes, strong preference| Q4B{Willing to accept&lt;br/&gt;JSON text limitations&lt;br/&gt;+ higher cost?}
+    Q3B --&gt;|No| PG4[[OK] PostgreSQL&lt;br/&gt;Lower TCO + JSONB]
+    
+    Q4A --&gt;|Yes, acceptable| SQL1[[WARN] SQL Server&lt;br/&gt;Higher cost, JSON workarounds]
+    Q4A --&gt;|No, not acceptable| PG5[[OK] PostgreSQL&lt;br/&gt;JSONB advantage decisive]
+    
+    Q4B --&gt;|Yes, acceptable| SQL2[[WARN] SQL Server with AHUB&lt;br/&gt;Higher cost, JSON workarounds]
+    Q4B --&gt;|No, not acceptable| PG6[[OK] PostgreSQL&lt;br/&gt;JSONB advantage decisive]
+    
+    PG1 --&gt; Rec1[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;Savings: $1,255/month vs SQL Server&lt;br/&gt;JSONB: Native support]
+    PG2 --&gt; Rec2[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;Savings: $655/month vs SQL Server AHUB&lt;br/&gt;JSONB: Native support]
+    PG3 --&gt; Rec3[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;Savings: $1,255/month&lt;br/&gt;JSONB: Native support]
+    PG4 --&gt; Rec4[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;Savings: $655/month with AHUB&lt;br/&gt;JSONB: Native support]
+    PG5 --&gt; Rec5[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;JSONB: Strategic advantage&lt;br/&gt;Savings: $1,255/month]
+    PG6 --&gt; Rec6[Recommendation: PostgreSQL&lt;br/&gt;Cost: $1,010/month&lt;br/&gt;JSONB: Strategic advantage&lt;br/&gt;Savings: $655/month with AHUB]
+    
+    SQL1 --&gt; Alt1[Alternative: SQL Server&lt;br/&gt;Cost: $2,265/month&lt;br/&gt;Compromise: JSON text workarounds&lt;br/&gt;Only if team expertise critical]
+    SQL2 --&gt; Alt2[Alternative: SQL Server with AHUB&lt;br/&gt;Cost: $1,665/month&lt;br/&gt;Compromise: JSON text workarounds&lt;br/&gt;Only if team expertise critical]
+    
+    style Start fill:#e1f5ff
+    style PG1 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG2 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG3 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG4 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG5 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style PG6 fill:#d4edda,stroke:#28a745,stroke-width:3px
+    style SQL1 fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style SQL2 fill:#fff3cd,stroke:#ffc107,stroke-width:2px
+    style Rec1 fill:#d4edda
+    style Rec2 fill:#d4edda
+    style Rec3 fill:#d4edda
+    style Rec4 fill:#d4edda
+    style Rec5 fill:#d4edda
+    style Rec6 fill:#d4edda
+    style Alt1 fill:#fff3cd
+    style Alt2 fill:#fff3cd</pre>
+  </div>
+
+  <script>
+    mermaid.initialize({ 
+      startOnLoad: true,
+      theme: 'default',
+      securityLevel: 'loose'
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+# Source files (only publish compiled output)
+src/
+!src/themes/
+
+# Development files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Configuration files
+tsconfig.json
+tsconfig.build.json
+.eslintrc*
+.prettierrc*
+
+# Testing
+**/*.test.ts
+**/*.test.tsx
+**/__tests__/
+coverage/
+.nyc_output/
+
+# Build configs
+*.config.js
+*.config.ts
+rollup.config.*
+webpack.config.*
+
+# Documentation (keep README and CHANGELOG)
+docs/
+
+# Development scripts
+scripts/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+

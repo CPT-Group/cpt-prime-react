@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "cursor-capabilities-service": {
+      "command": "node",
+      "args": [
+        "./.cursor/cursor-capabilities-service/dist/index.js"
+      ],
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "description": "Extended capabilities for Cursor: neural networks, PDF generation, live memory, and database access",
+      "enabled": true
+    }
+  }
+}
+
