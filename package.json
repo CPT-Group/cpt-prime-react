@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.9.1",
+  "version": "1.9.2",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -16,11 +16,16 @@
         "default": "./dist/cjs/index.js"
       }
     },
-    "./themes/*": {
-      "default": "./dist/themes/*.css"
-    },
+    "./cpt/light-theme.css": "./dist/cpt/light-theme.css",
+    "./cpt/dark-theme.css": "./dist/cpt/dark-theme.css",
     "./cpt/*": {
       "default": "./dist/cpt/*.css"
+    },
+    "./themes/cpt-default.css": "./dist/themes/cpt-default.css",
+    "./themes/soho-light.css": "./dist/themes/soho-light.css",
+    "./themes/soho-dark.css": "./dist/themes/soho-dark.css",
+    "./themes/*": {
+      "default": "./dist/themes/*.css"
     }
   },
   "files": [
