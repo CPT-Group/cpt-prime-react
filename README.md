@@ -13,8 +13,24 @@ This package provides TypeScript React components that wrap PrimeReact component
 
 ## Installation
 
+Install the latest version:
+
 ```bash
 npm install @cpt-group/cpt-prime-react
+# or explicitly
+npm install @cpt-group/cpt-prime-react@latest
+```
+
+Install a specific version:
+
+```bash
+npm install @cpt-group/cpt-prime-react@1.9.0
+```
+
+Install with version range:
+
+```bash
+npm install @cpt-group/cpt-prime-react@^1.9.0
 ```
 
 ### Peer Dependencies
