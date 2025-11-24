@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.1.0",
+  "version": "1.9.0",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -18,11 +18,16 @@
     },
     "./themes/*": {
       "default": "./src/themes/*.css"
+    },
+    "./cpt/*": {
+      "default": "./src/cpt/*.css"
     }
   },
   "files": [
     "dist",
     "src/themes",
+    "src/cpt",
+    "docs",
     "README.md",
     "CHANGELOG.md"
   ],
@@ -52,9 +57,14 @@
     "url": "git+https://github.com/CPT-Group/cpt-prime-react.git"
   },
   "peerDependencies": {
-    "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "primereact": "^10.0.0"
+    "chart.js": "^4.5.1",
+    "lodash-es": "^4.17.0",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.7",
+    "quill": "^2.0.0",
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "peerDependenciesMeta": {
     "react": {
@@ -65,12 +75,33 @@
     },
     "primereact": {
       "optional": false
+    },
+    "primeicons": {
+      "optional": false
+    },
+    "primeflex": {
+      "optional": false
+    },
+    "chart.js": {
+      "optional": true
+    },
+    "quill": {
+      "optional": true
+    },
+    "lodash-es": {
+      "optional": true
     }
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
+    "@types/react": "^18.3.27",
+    "@types/react-dom": "^18.3.7",
+    "chart.js": "^4.5.1",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "rimraf": "^5.0.0",
     "typescript": "^5.0.0"
   },

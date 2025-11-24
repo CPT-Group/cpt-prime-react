@@ -21,14 +21,24 @@ npm install @cpt-group/cpt-prime-react
 
 This package requires the following peer dependencies:
 
+**Required:**
 - `react` >= 16.8.0
 - `react-dom` >= 16.8.0
 - `primereact` >= 10.0.0
 
+**Optional (for specific components):**
+- `chart.js` >= 4.0.0 (required for `CPTChart` component)
+- `quill` >= 2.0.0 (required for `CPTEditor` component)
+- `lodash-es` >= 4.17.0 (required by `quill`)
+
 Make sure these are installed in your project:
 
 ```bash
+# Required dependencies
 npm install react react-dom primereact
+
+# Optional dependencies (if using Chart or Editor components)
+npm install chart.js quill lodash-es
 ```
 
 ## Usage
@@ -123,26 +133,92 @@ function MyComponent() {
 
 ### Available Themes
 
+#### Recommended CPT American Themes
+
 | Theme | Description | Import Path |
 |-------|-------------|-------------|
-| `cpt-default` | Custom red, white, and blue theme with glossy styling | `@cpt-group/cpt-prime-react/themes/cpt-default.css` |
+| `cpt-light` | Light theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/light-theme.css` |
+| `cpt-dark` | Dark theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/dark-theme.css` |
+
+#### Legacy Themes
+
+| Theme | Description | Import Path |
+|-------|-------------|-------------|
+| `cpt-default` | Legacy default theme (same as light) | `@cpt-group/cpt-prime-react/themes/cpt-default.css` |
 | `soho-dark` | Dark theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-dark.css` |
 | `soho-light` | Light theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-light.css` |
 
 ### Importing Themes
 
-Import one of the provided themes to get all required PrimeReact styles:
+**Important**: Import the theme CSS **ONCE** at your application's root/layout level (not in individual components), just like standard PrimeReact themes. The theme will apply globally to all CPT components.
+
+#### Import Paths
 
 ```tsx
-// CPT Default theme (red, white, and blue with glossy styling)
+// Recommended: CPT Light theme (American red, white, and blue)
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+
+// Recommended: CPT Dark theme (American red, white, and blue)
+import '@cpt-group/cpt-prime-react/cpt/dark-theme.css';
+
+// Legacy themes
 import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
-
-// Dark theme
 import '@cpt-group/cpt-prime-react/themes/soho-dark.css';
-
-// Light theme
 import '@cpt-group/cpt-prime-react/themes/soho-light.css';
 ```
+
+#### Where to Import
+
+**React (Create React App / Vite):**
+```tsx
+// src/index.tsx or src/main.tsx
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+import { createRoot } from 'react-dom/client';
+import App from './App';
+
+createRoot(document.getElementById('root')!).render(<App />);
+```
+
+**Next.js:**
+```tsx
+// app/layout.tsx (App Router) or pages/_app.tsx (Pages Router)
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+import type { Metadata } from 'next';
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+**React Router / Other Frameworks:**
+```tsx
+// Your root App component or layout component
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+import { BrowserRouter } from 'react-router-dom';
+
+function App() {
+  return (
+    <BrowserRouter>
+      {/* Your routes */}
+    </BrowserRouter>
+  );
+}
+```
+
+### Theme Features
+
+The CPT American themes feature:
+- **Primary Colors**: Deep patriotic blue (#1e3a8a, #1e40af) for primary actions and headers
+- **Secondary Colors**: Heroic pastel red (#f87171, #ef4444) - not emergency red, but a softer, more approachable red
+- **Accent Colors**: White and light grays for backgrounds and surfaces
+- **Gradients**: Blue gradients for banners, headers, and primary elements
+- **Dark Theme**: Darker variants maintaining the same color relationships
+
+For comprehensive theming documentation, see [docs/THEMING.md](./docs/THEMING.md).
 
 ### Theme Structure
 
@@ -154,22 +230,213 @@ Themes include:
 
 ### Using Themes
 
-Import the theme CSS once in your application entry point (e.g., `App.tsx` or `index.tsx`):
+#### Basic Usage Example
+
+**Step 1**: Import the theme once at your app root (e.g., `src/index.tsx`, `app/layout.tsx`, or `pages/_app.tsx`):
 
 ```tsx
-import React from 'react';
-import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
-import { CPTButton, CPTInputText } from '@cpt-group/cpt-prime-react';
+// src/index.tsx (or your root file)
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+```
 
-function App() {
+**Step 2**: Use components anywhere in your app - they'll automatically use the theme:
+
+```tsx
+// src/components/MyComponent.tsx
+import { CPTButton, CPTInputText, CPTCard, CPTPanel } from '@cpt-group/cpt-prime-react';
+
+function MyComponent() {
   return (
     <div>
-      <CPTButton label="Click Me" />
-      <CPTInputText placeholder="Enter text" />
+      <CPTCard title="Welcome">
+        <p>This is using the CPT Light theme with American colors!</p>
+        <CPTButton label="Primary Button" />
+        <CPTButton label="Secondary Button" className="p-button-secondary" />
+        <CPTInputText placeholder="Enter text here" />
+      </CPTCard>
+      
+      <CPTPanel header="Panel with Blue Gradient Header">
+        <p>Panels and cards feature blue gradient banners with American colors.</p>
+      </CPTPanel>
     </div>
   );
 }
 ```
+
+#### Dark Theme Example
+
+**Import once at root:**
+```tsx
+// src/index.tsx
+import '@cpt-group/cpt-prime-react/cpt/dark-theme.css';
+```
+
+**Use components anywhere:**
+```tsx
+// src/components/DataTableExample.tsx
+import { CPTButton, CPTDataTable, CPTColumn } from '@cpt-group/cpt-prime-react';
+
+function DataTableExample() {
+  const data = [
+    { id: 1, name: 'Item 1', status: 'Active' },
+    { id: 2, name: 'Item 2', status: 'Inactive' },
+  ];
+
+  return (
+    <div>
+      <CPTButton label="Click Me" />
+      <CPTDataTable 
+        value={data} 
+        header="Data Table with Blue Gradient Header"
+      >
+        <CPTColumn field="name" header="Name" />
+        <CPTColumn field="status" header="Status" />
+      </CPTDataTable>
+    </div>
+  );
+}
+```
+
+#### Complete Example with Multiple Components
+
+**Theme import (once at root):**
+```tsx
+// src/index.tsx
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+```
+
+**Component usage (anywhere in your app):**
+```tsx
+// src/components/Demo.tsx
+import React, { useState } from 'react';
+import {
+  CPTButton,
+  CPTInputText,
+  CPTCard,
+  CPTPanel,
+  CPTDataTable,
+  CPTColumn,
+  CPTDialog,
+  CPTToast,
+  CPTTabView,
+  CPTTabPanel,
+} from '@cpt-group/cpt-prime-react';
+
+function Demo() {
+  const [visible, setVisible] = useState(false);
+  const toast = React.useRef(null);
+
+  const showToast = () => {
+    toast.current?.show({
+      severity: 'info',
+      summary: 'Success',
+      detail: 'Theme is working perfectly!',
+    });
+  };
+
+  const data = [
+    { id: 1, name: 'John Doe', email: 'john@example.com' },
+    { id: 2, name: 'Jane Smith', email: 'jane@example.com' },
+  ];
+
+  return (
+    <div className="p-4">
+      <CPTCard title="CPT American Theme Demo">
+        <div className="flex flex-column gap-3">
+          <CPTButton 
+            label="Primary Button (Blue Gradient)" 
+            onClick={showToast}
+          />
+          <CPTButton 
+            label="Secondary Button (Heroic Red)" 
+            className="p-button-secondary"
+          />
+          
+          <CPTInputText placeholder="Enter your name" />
+          
+          <CPTButton 
+            label="Open Dialog" 
+            onClick={() => setVisible(true)}
+          />
+        </div>
+      </CPTCard>
+
+      <CPTPanel header="Panel with Blue Gradient Banner" className="mt-4">
+        <p>This panel header features a beautiful blue gradient banner.</p>
+      </CPTPanel>
+
+      <CPTDataTable 
+        value={data} 
+        header="Data Table with Blue Gradient Header"
+        className="mt-4"
+      >
+        <CPTColumn field="name" header="Name" />
+        <CPTColumn field="email" header="Email" />
+      </CPTDataTable>
+
+      <CPTTabView className="mt-4">
+        <CPTTabPanel header="Tab 1">
+          <p>Active tabs have blue gradient backgrounds.</p>
+        </CPTTabPanel>
+        <CPTTabPanel header="Tab 2">
+          <p>Content for tab 2</p>
+        </CPTTabPanel>
+      </CPTTabView>
+
+      <CPTDialog
+        header="Dialog with Blue Gradient Header"
+        visible={visible}
+        onHide={() => setVisible(false)}
+        style={{ width: '50vw' }}
+      >
+        <p>Dialogs feature blue gradient headers matching the American theme.</p>
+      </CPTDialog>
+
+      <CPTToast ref={toast} />
+    </div>
+  );
+}
+
+export default Demo;
+```
+
+### Comprehensive Theming Guide
+
+For detailed information about:
+- Creating custom themes
+- Dynamic theme switching
+- CSS variables reference
+- Theme customization
+- Best practices
+
+See the [Complete Theming Guide](./docs/THEMING.md).
+
+### Quick Start Example
+
+**Step 1**: Import the theme **once** at your application root (e.g., `src/index.tsx`, `app/layout.tsx`):
+
+```tsx
+// src/index.tsx (or your root file)
+import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
+```
+
+**Step 2**: Import and use components anywhere in your app:
+
+```tsx
+// src/components/MyComponent.tsx
+import { CPTButton, CPTInputText } from '@cpt-group/cpt-prime-react';
+
+function MyComponent() {
+  return (
+    <>
+      <CPTButton label="Click Me" />
+      <CPTInputText placeholder="Enter text" />
+    </>
+  );
+}
+```
+
+That's it! The theme automatically styles all CPT components globally with the American color scheme. You only need to import the theme once at the root level, just like standard PrimeReact themes.
 
 ## Components
 
@@ -337,6 +604,10 @@ npm run typecheck
 ## License
 
 MIT
+
+## Known Issues
+
+Some components with nested parent-child relationships (like Accordion/AccordionTab and TabView/TabPanel) may not work correctly when wrapped. See [KNOWN_ISSUES.md](./KNOWN_ISSUES.md) for details and workarounds.
 
 ## Support
 
