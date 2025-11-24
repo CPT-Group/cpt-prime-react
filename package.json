@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -17,26 +17,25 @@
       }
     },
     "./themes/*": {
-      "default": "./src/themes/*.css"
+      "default": "./dist/themes/*.css"
     },
     "./cpt/*": {
-      "default": "./src/cpt/*.css"
+      "default": "./dist/cpt/*.css"
     }
   },
   "files": [
     "dist",
-    "src/themes",
-    "src/cpt",
     "docs",
     "README.md",
     "CHANGELOG.md"
   ],
   "scripts": {
-    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types",
+    "build": "npm run build:clean && npm run build:cjs && npm run build:esm && npm run build:types && npm run build:copy-css",
     "build:clean": "rimraf dist",
     "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs",
     "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir dist/esm",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types",
+    "build:copy-css": "node -e \"const fs=require('fs');const path=require('path');[['src/cpt','dist/cpt'],['src/themes','dist/themes']].forEach(([src,dist])=>{fs.mkdirSync(dist,{recursive:true});fs.readdirSync(src).filter(f=>f.endsWith('.css')).forEach(f=>fs.copyFileSync(path.join(src,f),path.join(dist,f)))})\"",
     "watch": "tsc -p tsconfig.build.json --watch",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",

@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.1] - 2025-11-24
+
+### Fixed
+- Fixed CSS theme files not being accessible in published npm package
+- CSS files are now copied to `dist/cpt/` and `dist/themes/` during build
+- Updated package exports to point to `dist/cpt/*.css` and `dist/themes/*.css`
+- Themes are now properly included and accessible when installing from npm
+
 ## [1.9.0] - 2025-11-24
 
 ### Added
