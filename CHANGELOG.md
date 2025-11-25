@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.6] - 2025-01-XX
+
+### Fixed
+- **CRITICAL FIX**: Restructured theme CSS files to match PrimeReact Soho theme structure exactly
+- Removed `@import` statements from theme files (should be imported separately in application)
+- Updated theme structure to be identical to official PrimeReact Soho dark/light themes
+- All hardcoded primary color references now use custom colors (#3b82f6 for dark, #1e3a8a for light)
+- Updated primary color scale (--primary-50 through --primary-900) to properly match custom color scheme
+- Updated focus-ring and highlight-bg values to match custom primary colors
+- Theme files now have identical structure to PrimeReact's official themes, ensuring full compatibility
+
 ## [1.9.5] - 2025-11-24
 
 ### Fixed
