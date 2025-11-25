@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.3] - 2025-11-24
+
+### Fixed
+- **MAJOR FIX**: Completely rewrote themes to match PrimeReact Soho themes exactly
+- Themes now import `soho-light` and `soho-dark` themes directly
+- **ONLY color variables are overridden** - no custom styling, sizing, borders, transitions, or behavior changes
+- Removed all custom component styling (gradients, shadows, transforms, etc.)
+- Removed legacy themes (cpt-default, soho-light, soho-dark) from themes folder
+- Themes now look exactly like Soho but with American colors (blue primary, heroic red secondary)
+
+### Removed
+- Legacy theme files: `cpt-default.css`, `soho-light.css`, `soho-dark.css`
+- All custom component styling that changed appearance beyond colors
+- Legacy theme exports from package.json
+
 ## [1.9.2] - 2025-11-24
 
 ### Fixed

@@ -1,22 +1,14 @@
 /**
  * Theme CSS imports for CPT Prime React
  * 
- * Import one of these themes in your application to get all required PrimeReact styles:
- * - cpt-default: Custom red, white, and blue theme with glossy styling
- * - soho-dark: Dark theme with modern Soho styling
- * - soho-light: Light theme with modern Soho styling
+ * Legacy themes have been removed. Use the CPT themes instead:
+ * - @cpt-group/cpt-prime-react/cpt/light-theme.css
+ * - @cpt-group/cpt-prime-react/cpt/dark-theme.css
  * 
- * Usage:
- * ```ts
- * import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
- * ```
+ * These themes are based on PrimeReact Soho themes with American color scheme.
  */
 
-export const THEME_PATHS = {
-  'cpt-default': './cpt-default.css',
-  'soho-dark': './soho-dark.css',
-  'soho-light': './soho-light.css',
-} as const;
+export const THEME_PATHS = {} as const;
 
 export type ThemeName = keyof typeof THEME_PATHS;
 

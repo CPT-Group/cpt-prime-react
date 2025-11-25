@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -20,12 +20,6 @@
     "./cpt/dark-theme.css": "./dist/cpt/dark-theme.css",
     "./cpt/*": {
       "default": "./dist/cpt/*.css"
-    },
-    "./themes/cpt-default.css": "./dist/themes/cpt-default.css",
-    "./themes/soho-light.css": "./dist/themes/soho-light.css",
-    "./themes/soho-dark.css": "./dist/themes/soho-dark.css",
-    "./themes/*": {
-      "default": "./dist/themes/*.css"
     }
   },
   "files": [
@@ -40,7 +34,7 @@
     "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs",
     "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir dist/esm",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types",
-    "build:copy-css": "node -e \"const fs=require('fs');const path=require('path');[['src/cpt','dist/cpt'],['src/themes','dist/themes']].forEach(([src,dist])=>{fs.mkdirSync(dist,{recursive:true});fs.readdirSync(src).filter(f=>f.endsWith('.css')).forEach(f=>fs.copyFileSync(path.join(src,f),path.join(dist,f)))})\"",
+    "build:copy-css": "node -e \"const fs=require('fs');const path=require('path');fs.mkdirSync('dist/cpt',{recursive:true});fs.readdirSync('src/cpt').filter(f=>f.endsWith('.css')).forEach(f=>fs.copyFileSync(path.join('src/cpt',f),path.join('dist/cpt',f)))\"",
     "watch": "tsc -p tsconfig.build.json --watch",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",
