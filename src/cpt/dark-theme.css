@@ -9,13 +9,38 @@
 @import 'primeflex/primeflex.css';
 
 /* Override ONLY color variables with American patriotic colors */
+/* Must override the full color scale for proper theming */
 :root {
-  /* Primary Colors - Deep Patriotic Blue */
+  /* Primary Colors - Deep Patriotic Blue (Full Scale) */
+  --p-primary-50: #1e3a8a;
+  --p-primary-100: #1e40af;
+  --p-primary-200: #2563eb;
+  --p-primary-300: #3b82f6;
+  --p-primary-400: #60a5fa;
+  --p-primary-500: #3b82f6;
+  --p-primary-600: #2563eb;
+  --p-primary-700: #1e40af;
+  --p-primary-800: #1e3a8a;
+  --p-primary-900: #1e3a8a;
+  --p-primary-950: #172554;
+  
   --p-primary-color: #3b82f6;
   --p-primary-contrast-color: #ffffff;
   --p-primary-color-text: #ffffff;
   
-  /* Secondary Colors - Heroic Pastel Red (not emergency red) */
+  /* Secondary Colors - Heroic Pastel Red (Full Scale) */
+  --p-secondary-50: #7f1d1d;
+  --p-secondary-100: #991b1b;
+  --p-secondary-200: #b91c1c;
+  --p-secondary-300: #dc2626;
+  --p-secondary-400: #ef4444;
+  --p-secondary-500: #f87171;
+  --p-secondary-600: #f87171;
+  --p-secondary-700: #fca5a5;
+  --p-secondary-800: #fecaca;
+  --p-secondary-900: #fee2e2;
+  --p-secondary-950: #fef2f2;
+  
   --p-secondary-color: #f87171;
   --p-secondary-contrast-color: #ffffff;
   --p-secondary-color-text: #ffffff;

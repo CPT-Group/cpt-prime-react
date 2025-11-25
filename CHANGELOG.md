@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.4] - 2025-11-24
+
+### Fixed
+- **CRITICAL FIX**: Added full color scale overrides (--p-primary-50 through --p-primary-950)
+- PrimeReact themes use a full color scale system, not just base variables
+- Buttons and components now properly use American colors (blue primary, red secondary)
+- Overrides now include all scale values: 50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950
+- Light theme: Deep patriotic blue (#1e3a8a) for primary, heroic pastel red (#f87171) for secondary
+- Dark theme: Brighter blue (#3b82f6) for primary, same heroic red (#f87171) for secondary
+
 ## [1.9.3] - 2025-11-24
 
 ### Fixed

@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
