@@ -1,6 +1,6 @@
 {
   "name": "@cpt-group/cpt-prime-react",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "PrimeReact components wrapped with CPT naming conventions and types for easy customization",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
@@ -34,7 +34,7 @@
     "build:cjs": "tsc -p tsconfig.build.json --module commonjs --outDir dist/cjs",
     "build:esm": "tsc -p tsconfig.build.json --module esnext --outDir dist/esm",
     "build:types": "tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist/types",
-    "build:copy-css": "node -e \"const fs=require('fs');const path=require('path');fs.mkdirSync('dist/cpt',{recursive:true});fs.readdirSync('src/cpt').filter(f=>f.endsWith('.css')).forEach(f=>fs.copyFileSync(path.join('src/cpt',f),path.join('dist/cpt',f)))\"",
+    "build:copy-css": "node -e \"const fs=require('fs');const path=require('path');fs.mkdirSync('dist/cpt',{recursive:true});fs.readdirSync('src/cpt').filter(f=>f.endsWith('.css')).forEach(f=>fs.copyFileSync(path.join('src/cpt',f),path.join('dist/cpt',f)));if(fs.existsSync('src/cpt/fonts')){fs.mkdirSync('dist/cpt/fonts',{recursive:true});fs.readdirSync('src/cpt/fonts').forEach(f=>fs.copyFileSync(path.join('src/cpt/fonts',f),path.join('dist/cpt/fonts',f)));}\"",
     "watch": "tsc -p tsconfig.build.json --watch",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build",

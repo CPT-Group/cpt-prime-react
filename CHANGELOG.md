@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.9.7] - 2025-01-XX
+
+### Changed
+- **Theme Replacement**: Replaced all custom theme files with new CPT dark and light themes from centralized theme repository
+- Removed old theme implementations that were causing issues
+- Added new fine-tuned CPT themes extracted from production codebase
+- Theme files now sourced from `cpt-theme` repository for consistency across all CPT sites
+
+### Fixed
+- Resolved theme setup issues that occurred during initial theming implementation
+- Themes are now properly structured and organized for easy maintenance
+
 ## [1.9.6] - 2025-01-XX
 
 ### Fixed
