@@ -486,108 +486,119 @@ That's it! The theme automatically styles all CPT components globally with the A
 
 ## Components
 
-All major PrimeReact components are available with CPT naming:
+All major PrimeReact components are available with CPT naming. The following table lists all available components:
 
-### Form Components
-- `CPTInputText` - Text input
-- `CPTInputTextarea` - Textarea
-- `CPTInputNumber` - Number input
-- `CPTInputMask` - Masked input
-- `CPTInputSwitch` - Toggle switch
-- `CPTButton` - Button
-- `CPTButtonGroup` - Button group
-- `CPTSplitButton` - Split button
-- `CPTToggleButton` - Toggle button
-- `CPTCheckbox` - Checkbox
-- `CPTTriStateCheckbox` - Tri-state checkbox
-- `CPTRadioButton` - Radio button
-- `CPTDropdown` - Dropdown
-- `CPTMultiSelect` - Multi-select dropdown
-- `CPTAutoComplete` - Autocomplete
-- `CPTCalendar` - Calendar/Date picker
-- `CPTChips` - Chips input
-- `CPTColorPicker` - Color picker
-- `CPTEditor` - Rich text editor
-- `CPTFileUpload` - File upload
-- `CPTKnob` - Knob control
-- `CPTPassword` - Password input
-- `CPTRating` - Rating
-- `CPTSelectButton` - Select button
-- `CPTSlider` - Slider
-- `CPTTreeSelect` - Tree select
+| Component | Description | Category |
+|-----------|-------------|----------|
+| `CPTAccordion` | Accordion container component | Panel |
+| `CPTAccordionTab` | Accordion tab component | Panel |
+| `CPTAutoComplete` | Autocomplete input with suggestions | Form |
+| `CPTAvatar` | Avatar/Profile picture display | Layout |
+| `CPTAvatarGroup` | Group of avatars | Layout |
+| `CPTBlockUI` | Block UI overlay | Overlay |
+| `CPTBreadcrumb` | Breadcrumb navigation | Navigation |
+| `CPTButton` | Standard button component | Form |
+| `CPTButtonGroup` | Group of buttons | Form |
+| `CPTCalendar` | Calendar/Date picker | Form |
+| `CPTCard` | Card container component | Data Display |
+| `CPTCarousel` | Image/content carousel | Media |
+| `CPTChart` | Chart component (Chart.js) | Data Display |
+| `CPTCheckbox` | Checkbox input | Form |
+| `CPTChip` | Chip/Tag display component | Data Display |
+| `CPTChips` | Chips input component | Form |
+| `CPTColorPicker` | Color picker input | Form |
+| `CPTColumn` | Table column definition | Data Display |
+| `CPTColumnGroup` | Table column group | Data Display |
+| `CPTConfirmDialog` | Confirmation dialog | Overlay |
+| `CPTConfirmPopup` | Confirmation popup | Overlay |
+| `CPTContextMenu` | Context menu component | Menu |
+| `CPTDataTable` | Advanced data table | Data Display |
+| `CPTDataView` | Data view with layout options | Data Display |
+| `CPTDataViewLayoutOptions` | Data view layout switcher | Data Display |
+| `CPTDialog` | Dialog/Modal component | Overlay |
+| `CPTDivider` | Divider/separator line | Panel |
+| `CPTDock` | Dock menu component | Menu |
+| `CPTDropdown` | Dropdown select | Form |
+| `CPTEditor` | Rich text editor (Quill) | Form |
+| `CPTFieldset` | Fieldset container | Panel |
+| `CPTFileUpload` | File upload component | Form |
+| `CPTGalleria` | Image gallery component | Media |
+| `CPTImage` | Image component with preview | Media |
+| `CPTInplace` | Inplace editor container | Misc |
+| `CPTInplaceContent` | Inplace editor content | Misc |
+| `CPTInplaceDisplay` | Inplace editor display | Misc |
+| `CPTInputMask` | Masked text input | Form |
+| `CPTInputNumber` | Number input with controls | Form |
+| `CPTInputSwitch` | Toggle switch input | Form |
+| `CPTInputText` | Standard text input | Form |
+| `CPTInputTextarea` | Multi-line text input | Form |
+| `CPTKnob` | Knob control input | Form |
+| `CPTListbox` | Listbox select component | Form |
+| `CPTMegaMenu` | Mega menu component | Menu |
+| `CPTMenu` | Menu component | Menu |
+| `CPTMenubar` | Menubar component | Menu |
+| `CPTMessage` | Message display component | Messages |
+| `CPTMeterGroup` | Meter group component | Misc |
+| `CPTMultiSelect` | Multi-select dropdown | Form |
+| `CPTOrganizationChart` | Organization chart | Data Display |
+| `CPTOverlayPanel` | Overlay panel component | Overlay |
+| `CPTPanel` | Panel container component | Panel |
+| `CPTPanelMenu` | Panel menu component | Menu |
+| `CPTPassword` | Password input with strength meter | Form |
+| `CPTProgressBar` | Progress bar indicator | Data Display |
+| `CPTProgressSpinner` | Loading spinner | Data Display |
+| `CPTRadioButton` | Radio button input | Form |
+| `CPTRating` | Rating input component | Form |
+| `CPTRow` | Row layout component | Layout |
+| `CPTSelectButton` | Select button group | Form |
+| `CPTSidebar` | Sidebar component | Overlay |
+| `CPTSkeleton` | Loading skeleton placeholder | Data Display |
+| `CPTSlideMenu` | Slide menu component | Menu |
+| `CPTSlider` | Slider input component | Form |
+| `CPTSpeedDial` | Speed dial floating action button | Misc |
+| `CPTSplitButton` | Split button with dropdown | Form |
+| `CPTSplitter` | Splitter/resizer component | Misc |
+| `CPTSplitterPanel` | Splitter panel component | Misc |
+| `CPTSteps` | Steps/wizard indicator | Navigation |
+| `CPTTabPanel` | Tab panel component | Panel |
+| `CPTTabView` | Tab view container | Panel |
+| `CPTTag` | Tag component | Data Display |
+| `CPTTerminal` | Terminal component | Misc |
+| `CPTTieredMenu` | Tiered menu component | Menu |
+| `CPTTimeline` | Timeline component | Data Display |
+| `CPTToast` | Toast notification component | Messages |
+| `CPTToggleButton` | Toggle button component | Form |
+| `CPTToolbar` | Toolbar component | Panel |
+| `CPTTooltip` | Tooltip component | Overlay |
+| `CPTTreeSelect` | Tree select component | Form |
+| `CPTTreeTable` | Tree table component | Data Display |
+| `CPTTriStateCheckbox` | Tri-state checkbox | Form |
+| `CPTVirtualScroller` | Virtual scroller component | Misc |
 
-### Data Display
-- `CPTDataTable` - Data table
-- `CPTDataView` - Data view
-- `CPTDataViewLayoutOptions` - Data view layout options
-- `CPTTreeTable` - Tree table
-- `CPTColumn` - Table column
-- `CPTColumnGroup` - Table column group
-- `CPTChart` - Chart
-- `CPTProgressBar` - Progress bar
-- `CPTProgressSpinner` - Progress spinner
-- `CPTSkeleton` - Loading skeleton
-- `CPTTag` - Tag
-- `CPTChip` - Chip
-- `CPTCard` - Card
-- `CPTPanel` - Panel
-- `CPTFieldset` - Fieldset
-- `CPTDivider` - Divider
-- `CPTAccordion` - Accordion
-- `CPTAccordionTab` - Accordion tab
-- `CPTTabView` - Tab view
-- `CPTTabPanel` - Tab panel
-- `CPTTimeline` - Timeline
-- `CPTOrganizationChart` - Organization chart
+## Attribution & Acknowledgments
 
-### Overlay Components
-- `CPTDialog` - Dialog/Modal
-- `CPTSidebar` - Sidebar
-- `CPTOverlayPanel` - Overlay panel
-- `CPTConfirmDialog` - Confirm dialog
-- `CPTConfirmPopup` - Confirm popup
-- `CPTTooltip` - Tooltip
-- `CPTBlockUI` - Block UI overlay
+### PrimeReact
 
-### Menu Components
-- `CPTMenu` - Context menu
-- `CPTContextMenu` - Context menu
-- `CPTTieredMenu` - Tiered menu
-- `CPTSlideMenu` - Slide menu
-- `CPTMegaMenu` - Mega menu
-- `CPTMenubar` - Menubar
-- `CPTPanelMenu` - Panel menu
-- `CPTDock` - Dock menu
+This package is built on top of [PrimeReact](https://primereact.org/), an excellent React UI component library developed by [PrimeTek](https://www.primetek.com.tr/). 
 
-### Navigation
-- `CPTBreadcrumb` - Breadcrumb
-- `CPTSteps` - Steps indicator
+**CPT PrimeReact** wraps PrimeReact components with CPT naming conventions while maintaining full compatibility with PrimeReact's theming system, component APIs, and documentation. This means:
 
-### Media
-- `CPTImage` - Image
-- `CPTGalleria` - Gallery
-- `CPTCarousel` - Carousel
+- ✅ All PrimeReact themes are compatible with CPT components
+- ✅ All PrimeReact component props and APIs work identically
+- ✅ PrimeReact documentation and examples can be used as reference
+- ✅ PrimeReact's theming architecture is fully supported
 
-### Messages
-- `CPTMessage` - Message
-- `CPTToast` - Toast notifications
+We are grateful to the PrimeReact team for creating such a robust and well-designed component library. This package would not exist without their excellent work.
 
-### Misc
-- `CPTTerminal` - Terminal component
-- `CPTSplitter` - Splitter
-- `CPTSplitterPanel` - Splitter panel
-- `CPTVirtualScroller` - Virtual scroller
-- `CPTSpeedDial` - Speed dial
-- `CPTMeterGroup` - Meter group
-- `CPTInplace` - Inplace editor
-- `CPTInplaceDisplay` - Inplace display
-- `CPTInplaceContent` - Inplace content
+**Resources:**
+- [PrimeReact Official Website](https://primereact.org/)
+- [PrimeReact GitHub Repository](https://github.com/primefaces/primereact)
+- [PrimeReact Documentation](https://primereact.org/)
+- [PrimeReact Theme Gallery](https://primereact.org/theming/)
 
-### Layout
-- `CPTRow` - Row
-- `CPTAvatar` - Avatar
-- `CPTAvatarGroup` - Avatar group
-- `CPTSkeleton` - Skeleton loader
+### License
+
+This package is licensed under MIT, following PrimeReact's licensing model. PrimeReact itself is licensed under MIT.
 
 ## PrimeReact Version Compatibility
 
