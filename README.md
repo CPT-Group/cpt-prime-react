@@ -24,13 +24,13 @@ npm install @cpt-group/cpt-prime-react@latest
 Install a specific version:
 
 ```bash
-npm install @cpt-group/cpt-prime-react@1.9.0
+npm install @cpt-group/cpt-prime-react@1.9.7
 ```
 
 Install with version range:
 
 ```bash
-npm install @cpt-group/cpt-prime-react@^1.9.0
+npm install @cpt-group/cpt-prime-react@^1.9.7
 ```
 
 ### Peer Dependencies
@@ -149,20 +149,14 @@ function MyComponent() {
 
 ### Available Themes
 
-#### Recommended CPT American Themes
+#### Available Themes
+
+CPT PrimeReact provides two official themes:
 
 | Theme | Description | Import Path |
 |-------|-------------|-------------|
-| `cpt-light` | Light theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/light-theme.css` |
-| `cpt-dark` | Dark theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/dark-theme.css` |
-
-#### Legacy Themes
-
-| Theme | Description | Import Path |
-|-------|-------------|-------------|
-| `cpt-default` | Legacy default theme (same as light) | `@cpt-group/cpt-prime-react/themes/cpt-default.css` |
-| `soho-dark` | Dark theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-dark.css` |
-| `soho-light` | Light theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-light.css` |
+| `cpt-light` | Light theme with CPT styling | `@cpt-group/cpt-prime-react/cpt/light-theme.css` |
+| `cpt-dark` | Dark theme with CPT styling | `@cpt-group/cpt-prime-react/cpt/dark-theme.css` |
 
 ### Importing Themes
 
@@ -171,16 +165,11 @@ function MyComponent() {
 #### Import Paths
 
 ```tsx
-// Recommended: CPT Light theme (American red, white, and blue)
+// CPT Light theme
 import '@cpt-group/cpt-prime-react/cpt/light-theme.css';
 
-// Recommended: CPT Dark theme (American red, white, and blue)
+// CPT Dark theme
 import '@cpt-group/cpt-prime-react/cpt/dark-theme.css';
-
-// Legacy themes
-import '@cpt-group/cpt-prime-react/themes/cpt-default.css';
-import '@cpt-group/cpt-prime-react/themes/soho-dark.css';
-import '@cpt-group/cpt-prime-react/themes/soho-light.css';
 ```
 
 #### Where to Import
@@ -225,14 +214,55 @@ function App() {
 }
 ```
 
-### Theme Features
+### Dynamic Theme Switching
 
-The CPT American themes feature:
-- **Primary Colors**: Deep patriotic blue (#1e3a8a, #1e40af) for primary actions and headers
-- **Secondary Colors**: Heroic pastel red (#f87171, #ef4444) - not emergency red, but a softer, more approachable red
-- **Accent Colors**: White and light grays for backgrounds and surfaces
-- **Gradients**: Blue gradients for banners, headers, and primary elements
-- **Dark Theme**: Darker variants maintaining the same color relationships
+**Important**: For dynamic theme switching (changing themes at runtime), the theme CSS files must be available in your `public` folder. This is required because PrimeReact's `changeTheme` function needs to swap the stylesheet link dynamically.
+
+#### Setup for Theme Switching
+
+1. **Copy theme files to your public folder:**
+
+```bash
+# Copy from node_modules to your public folder
+cp node_modules/@cpt-group/cpt-prime-react/dist/cpt/light-theme.css public/themes/
+cp node_modules/@cpt-group/cpt-prime-react/dist/cpt/dark-theme.css public/themes/
+cp -r node_modules/@cpt-group/cpt-prime-react/dist/cpt/fonts public/themes/
+```
+
+2. **Add a link element in your HTML** (or use Next.js Head component):
+
+```tsx
+// In index.html or app/layout.tsx
+<link id="theme-link" rel="stylesheet" href="/themes/light-theme.css" />
+```
+
+3. **Use changeTheme in your components:**
+
+```tsx
+import { PrimeReactContext } from 'primereact/api';
+import { useContext } from 'react';
+
+function ThemeSwitcher() {
+  const { changeTheme } = useContext(PrimeReactContext);
+  
+  const switchToDark = () => {
+    changeTheme('light-theme', 'dark-theme', 'theme-link');
+  };
+  
+  const switchToLight = () => {
+    changeTheme('dark-theme', 'light-theme', 'theme-link');
+  };
+  
+  return (
+    <div>
+      <button onClick={switchToLight}>Light Theme</button>
+      <button onClick={switchToDark}>Dark Theme</button>
+    </div>
+  );
+}
+```
+
+**Note**: If you're only using a single theme (not switching dynamically), you can import the CSS directly in your code as shown in the examples above. Theme switching requires the files to be in the public folder.
 
 For comprehensive theming documentation, see [docs/THEMING.md](./docs/THEMING.md).
 

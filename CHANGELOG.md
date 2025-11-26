@@ -5,17 +5,38 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.9.7] - 2025-01-XX
+## [1.9.8] - 2025-11-25
+
+### Documentation
+- **Comprehensive Documentation Update**: Updated README.md and THEMING.md to reflect current theme structure
+- Removed all references to legacy themes (cpt-default, soho-dark, soho-light)
+- Added detailed theme switching instructions with prerequisites and setup steps
+- Clarified that theme CSS files must be in public folder for dynamic theme switching
+- Added platform-specific instructions (Windows PowerShell and Unix commands)
+- Updated examples for React, Next.js App Router, and Next.js Pages Router
+- Improved theme switching implementation examples
+
+### Changed
+- Documentation now accurately reflects only the two official themes (cpt-light and cpt-dark)
+- Theme switching section now includes all prerequisites as per PrimeReact documentation
+
+## [1.9.7] - 2025-11-25
 
 ### Changed
 - **Theme Replacement**: Replaced all custom theme files with new CPT dark and light themes from centralized theme repository
 - Removed old theme implementations that were causing issues
 - Added new fine-tuned CPT themes extracted from production codebase
 - Theme files now sourced from `cpt-theme` repository for consistency across all CPT sites
+- **Breaking Change**: Removed legacy themes (`cpt-default`, `soho-dark`, `soho-light`) - only `cpt-light` and `cpt-dark` are now available
 
 ### Fixed
 - Resolved theme setup issues that occurred during initial theming implementation
 - Themes are now properly structured and organized for easy maintenance
+
+### Documentation
+- Updated README and THEMING.md to reflect new theme structure
+- Added theme switching instructions for dynamic theme changes
+- Clarified that theme CSS files must be in public folder for theme switching functionality
 
 ## [1.9.6] - 2025-01-XX
 

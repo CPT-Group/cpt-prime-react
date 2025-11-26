@@ -23,34 +23,23 @@ PrimeReact uses a two-layer theming architecture:
 
 This separation allows you to customize the look and feel of components without affecting their functionality.
 
-### CPT American Theme Design Philosophy
+### CPT Theme Design
 
-Our CPT themes feature an American patriotic color scheme with:
+Our CPT themes are designed for consistency across all CPT applications and feature:
 
-- **Primary Colors**: Deep patriotic blue (#1e3a8a, #1e40af) for primary actions and headers
-- **Secondary Colors**: Heroic pastel red (#f87171, #ef4444) - not emergency red, but a softer, more approachable red
-- **Accent Colors**: White and light grays for backgrounds and surfaces
-- **Gradients**: Blue gradients for banners, headers, and primary elements
-- **Dark Theme**: Darker variants maintaining the same color relationships
+- **Consistent styling** across light and dark variants
+- **Professional appearance** suitable for enterprise applications
+- **Full PrimeReact compatibility** with all components
+- **Customizable** via CSS variables
 
 ## Available Themes
 
-CPT PrimeReact provides two custom American-themed themes:
+CPT PrimeReact provides two official themes:
 
 | Theme | Description | Import Path |
 |-------|-------------|-------------|
-| `cpt-light` | Light theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/light-theme.css` |
-| `cpt-dark` | Dark theme with American red, white, and blue colors | `@cpt-group/cpt-prime-react/cpt/dark-theme.css` |
-
-### Legacy Themes
-
-For backward compatibility, these themes are still available:
-
-| Theme | Description | Import Path |
-|-------|-------------|-------------|
-| `cpt-default` | Legacy default theme (same as light) | `@cpt-group/cpt-prime-react/themes/cpt-default.css` |
-| `soho-dark` | Dark theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-dark.css` |
-| `soho-light` | Light theme with modern Soho styling | `@cpt-group/cpt-prime-react/themes/soho-light.css` |
+| `cpt-light` | Light theme with CPT styling | `@cpt-group/cpt-prime-react/cpt/light-theme.css` |
+| `cpt-dark` | Dark theme with CPT styling | `@cpt-group/cpt-prime-react/cpt/dark-theme.css` |
 
 ## Using Themes
 
@@ -159,12 +148,11 @@ Each theme automatically includes:
 ```
 @cpt-group/cpt-prime-react/
 ├── cpt/
-│   ├── light-theme.css    # Light American theme
-│   └── dark-theme.css      # Dark American theme
-└── themes/                 # Legacy themes
-    ├── cpt-default.css
-    ├── soho-light.css
-    └── soho-dark.css
+│   ├── light-theme.css    # Light theme
+│   ├── dark-theme.css     # Dark theme
+│   └── fonts/             # Theme fonts
+│       ├── lato-*.woff
+│       └── lato-*.woff2
 ```
 
 ### Theme Components
@@ -322,7 +310,14 @@ Create a new CSS file that imports a base theme and overrides variables:
 
 ## Dynamic Theme Switching
 
-PrimeReact provides a `changeTheme` function for dynamic theme switching. Here's how to implement it:
+**Important**: For dynamic theme switching (changing themes at runtime), the theme CSS files **must be available in your `public` folder**. This is required because PrimeReact's `changeTheme` function needs to swap the stylesheet link dynamically. If you're only using a single theme, you can import the CSS directly in your code.
+
+### Prerequisites
+
+According to [PrimeReact's theming documentation](https://primereact.org/theming/), there are two prerequisites for dynamic theme switching:
+
+1. **Themes must be publicly available** under the `public` folder in your project
+2. **Theme CSS must be accessible via a link element** so that the id of the link can be provided to the `changeTheme` function
 
 ### Setup
 
@@ -330,20 +325,70 @@ PrimeReact provides a `changeTheme` function for dynamic theme switching. Here's
 
 ```bash
 # Copy themes from node_modules to public
-cp node_modules/@cpt-group/cpt-prime-react/cpt/*.css public/themes/
+mkdir -p public/themes
+cp node_modules/@cpt-group/cpt-prime-react/dist/cpt/light-theme.css public/themes/
+cp node_modules/@cpt-group/cpt-prime-react/dist/cpt/dark-theme.css public/themes/
+cp -r node_modules/@cpt-group/cpt-prime-react/dist/cpt/fonts public/themes/
+```
+
+**Windows (PowerShell):**
+```powershell
+# Create themes directory
+New-Item -ItemType Directory -Force -Path public\themes
+
+# Copy theme files
+Copy-Item node_modules\@cpt-group\cpt-prime-react\dist\cpt\light-theme.css public\themes\
+Copy-Item node_modules\@cpt-group\cpt-prime-react\dist\cpt\dark-theme.css public\themes\
+Copy-Item -Recurse node_modules\@cpt-group\cpt-prime-react\dist\cpt\fonts public\themes\
 ```
 
 2. **Add theme link in your HTML**:
 
+**React (index.html):**
 ```html
-<!-- index.html or _document.tsx -->
+<!-- public/index.html -->
 <link id="theme-link" rel="stylesheet" href="/themes/light-theme.css">
+```
+
+**Next.js (App Router - app/layout.tsx):**
+```tsx
+import Head from 'next/head';
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <head>
+        <link id="theme-link" rel="stylesheet" href="/themes/light-theme.css" />
+      </head>
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+**Next.js (Pages Router - pages/_document.tsx):**
+```tsx
+import { Html, Head, Main, NextScript } from 'next/document';
+
+export default function Document() {
+  return (
+    <Html>
+      <Head>
+        <link id="theme-link" rel="stylesheet" href="/themes/light-theme.css" />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
 ```
 
 ### Implementation
 
 ```tsx
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { PrimeReactContext } from 'primereact/api';
 import { CPTButton } from '@cpt-group/cpt-prime-react';
 
